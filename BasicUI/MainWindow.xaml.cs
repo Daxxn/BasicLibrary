@@ -26,7 +26,7 @@ namespace BasicUI
         public MainWindow()
         {
             InitializeComponent();
-            
+
         }
 
         private void Submit_Name_Click(object sender, RoutedEventArgs e)
@@ -34,6 +34,7 @@ namespace BasicUI
             Person person = new Person(First_Box.Text, Last_Box.Text);
             allPeople.Add(person);
             Person_Combo_Box.Items.Add(person);
+
             if (Name_List.Text != "")
             {
                 Name_List.Text += "\n" + person;
