@@ -32,8 +32,16 @@
         <TextBlock Text="Last Name:" Grid.Column="1" Grid.Row="3" Margin="0,3,5,0"/>
         <TextBox x:Name="First_Box" Grid.Column="2" Grid.Row="2" Width="150" Background="AliceBlue" Margin="0,0,0,2"/>
         <TextBox x:Name="Last_Box" Grid.Column="2" Grid.Row="3" Width="150" Background="AliceBlue" Margin="0,2,0,0"/>
+        <TextBox x:Name="Dis_Random_Num" Grid.Column="2" Grid.Row="5" Width="100" Background="AliceBlue" Margin="0,0,0,2" HorizontalAlignment="Right"/>
         <Button Name="Submit_Name" Click="Submit_Name_Click" Grid.Column="3" Grid.Row="3" Content="Submit Name" Margin="5,0,0,0"/>
         <Button Name="Random_Num" Click="Random_Num_Click" Grid.Column="3" Grid.Row="5" Content="Random Number" Margin="5,5,0,0"/>
         <Button Name="Show_Names" Click="Show_Names_Click" Grid.Column="3" Grid.Row="4" Content="Show Names" Margin="5,5,0,0"/>
+        <ComboBox x:Name="Person_Combo_Box" Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding FullName}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
     </Grid>
 </Window>

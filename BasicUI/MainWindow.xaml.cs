@@ -26,33 +26,46 @@ namespace BasicUI
         public MainWindow()
         {
             InitializeComponent();
+
+            
         }
 
         private void Submit_Name_Click(object sender, RoutedEventArgs e)
         {
-            allPeople.Add(new Person(First_Box.Text, Last_Box.Text));
+            Person person = new Person(First_Box.Text, Last_Box.Text);
+            allPeople.Add(person);
+            Person_Combo_Box.ItemsSource = allPeople;
         }
 
         private void Random_Num_Click(object sender, RoutedEventArgs e)
         {
             Random roll = new Random();
-            MessageBox.Show(roll.Next(1, 100).ToString());
+            //MessageBox.Show(roll.Next(1, 100).ToString());
+            Dis_Random_Num.Text = roll.Next(1, 100).ToString();
         }
 
         private void Show_Names_Click(object sender, RoutedEventArgs e)
         {
-            //string allPersons = PrintNames(allPeople);
-            MessageBox.Show(allPeople[0].FullName);
+            //MessageBox.Show(allPeople[0].FullName);
+            MessageBox.Show(CombineNames(allPeople));
         }
 
         private string CombineNames(List<Person> people)
         {
-            string allPeeps = "";
-            foreach (var item in collection)
+            string[] allArray = new string[people.Count];
+            for (int i = 0; i < people.Count; i++)
             {
-
+                if(people[i] != null)
+                {
+                    allArray[i] = people[i].FullName;
+                }
             }
-            
+            string allPeeps = "";
+            foreach (var peeps in people)
+            {
+                allPeeps += (allPeeps == "" ? "" : "\n") + peeps.FullName;
+            }
+            return allPeeps;
         }
     }
 }
