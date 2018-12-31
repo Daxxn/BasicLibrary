@@ -27,14 +27,14 @@ namespace BasicUI
         {
             InitializeComponent();
 
-            
+            //Person_Combo_Box.ItemsSource = allPeople;
         }
 
         private void Submit_Name_Click(object sender, RoutedEventArgs e)
         {
             Person person = new Person(First_Box.Text, Last_Box.Text);
             allPeople.Add(person);
-            Person_Combo_Box.ItemsSource = allPeople;
+            Person_Combo_Box.Items.Add(person);
         }
 
         private void Random_Num_Click(object sender, RoutedEventArgs e)
