@@ -26,7 +26,6 @@ namespace BasicUI
         public MainWindow()
         {
             InitializeComponent();
-
             
         }
 
@@ -34,7 +33,15 @@ namespace BasicUI
         {
             Person person = new Person(First_Box.Text, Last_Box.Text);
             allPeople.Add(person);
-            Person_Combo_Box.ItemsSource = allPeople;
+            Person_Combo_Box.Items.Add(person);
+            if (Name_List.Text != "")
+            {
+                Name_List.Text += "\n" + person;
+            } else
+            {
+                Name_List.Text += person;
+            }
+            
         }
 
         private void Random_Num_Click(object sender, RoutedEventArgs e)
