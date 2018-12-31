@@ -22,5 +22,11 @@ namespace BasicLibrary
         {
             get { return $"{FirstName} {LastName}"; }
         }
+
+        override
+        public string ToString()
+        {
+            return this.FirstName + " " + this.LastName;
+        }
     }
 }
